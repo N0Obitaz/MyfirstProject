@@ -1,0 +1,17 @@
+* {
+margin: 0px;
+padding: 0px;
+}
+body {
+    background-color: #0a183d;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    
+    
+}
+.box {
+    position: fixed;
+    left: 0%;
+    top: 5%;
+    
+}

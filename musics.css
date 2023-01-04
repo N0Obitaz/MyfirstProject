@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300;400&display=swap');
+
+*{
+ font-family: 'Source Serif Pro', serif;
+  
+  margin:0; padding:0;
+
+  
+  box-sizing: border-box;
+  outline: none; border:none;
+  text-transform: capitalize;
+  text-decoration: none;
+  transition: .2s linear;
+ 
+}
+
+.container .heading{
+  background-color: #98eaea;
+  text-align: center;
+  padding:10px;
+  color:#333;
+  font-size: 35px;
+  border-bottom: 3px solid #333;
+}
+
+.container .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap:20px;
+  padding:20px 9%;
+  background: #17a5a5;
+}
+
+.container .box-container.active{
+  padding-bottom: 150px;
+}
+
+.container .box-container .box{
+  border-radius: 10px;
+  background:#98eaea;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  padding:15px;
+  cursor: pointer;
+}
+
+.container .box-container .box .image{
+  height:540px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+}
+
+.container .box-container .box .image img{
+  height:100%;
+  width:100%;
+  object-fit: cover;
+}
+
+.container .box-container .box .image .play{
+  position: absolute;
+  top:0; left:0;
+  height: 100%;
+  width:100%;
+  background: rgba(0,0,0,.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  display: none;
+}
+
+.container .box-container .box:hover .image .play{
+  display: flex;
+}
+
+.container .box-container .box .image .play i{
+  font-size: 100px;
+  color: Aquamarine;
+}
+
+.container .box-container .box .content{
+  padding-top: 15px;
+}
+
+.container .box-container .box .content h3{
+  font-size: 20px;
+  color:#333;
+}
+
+.music-player{
+  position: fixed;
+  bottom: -125px; left:0; right:0;
+  background: #17a5a5;
+  z-index: 1000;
+
+}
+
+.music-player.active{
+  bottom: 0;
+}
+
+.music-player .music-title{
+  font-size: 25px;
+  margin-bottom: 5px;
+  border-top: 3px solid #333;
+  border-bottom: 1px solid #333;
+  text-align: center;
+  color:#D3D3D3;
+  padding:10px;
+}
+
+.music-player audio{
+  width: 100%;
+}
+
+.music-player audio::-webkit-media-controls-enclosure{
+  border-radius: 0;
+  background: #98eaea;
+}
+
+.music-player #close-player{
+  position: absolute;
+  top:-50px; left: 10px;
+  height: 50px;
+  width: 55px;
+  line-height: 50px;
+  cursor: pointer;
+  font-size: 30px;
+  color:#333;
+  background: #98eaea;
+  border:3px solid #fff;
+  border-bottom: none;
+  text-align: center;
+}
+.music-player #closed-player{
+  position: absolute;
+  top:-50px; right: 5px;
+  height: 50px;
+  width: 55px;
+  line-height: 50px;
+  cursor: pointer;
+  font-size: 30px;
+  color:#333;
+  background: #98eaea;
+  border:3px solid #fff;
+  border-bottom: none;
+  text-align: center;
+}
+
+body {
+background: #17a5a5;
+}
+button {
+ position: absolute;
+ top: 160%;
+ left: 92%;
+ bottom: 100%;
+ transform: translate(-50, -50);
+ font-weight: bolder;
+ font-color: #333
+}
+
+button {
+ position: absolute;
+ background: none;
+ color: #ccc;
+ width: 110px;
+ height: 60px;
+ border: 4px solid #000;
+ font-size: 18px;
+ border-radius: 4px;
+ transition: .6s;
+ overflow: hidden;
+ 
+}
+
+button:focus {
+ outline: none;
+}
+
+button:before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(255,255,255,.5);
+    width: 60px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: .6;
+    filter: blur(30px);
+    transform: translateX(-130px) skewX(-15deg);
+}
+
+button:after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(255,255,255,.2);
+    width: 30px;
+    height: 100%;
+    left: 30px;
+    top: 0;
+    opacity: 0;
+    filter: blur(30px);
+    transform: translateX(-100px) scaleX(-15deg);
+}
+
+button:hover {
+   background: #000;
+   cursor: pointer;
+}
+
+button:hover:before {
+ transform: translateX(300px) skewX(-15deg);
+ opacity: .6;
+ transition: .7s;
+}
+
+button:hover:after {
+ transform: translateX(300px) skewX(-15deg);
+ opacity: 1;
+ transition: .7s;
+}
+@media (max-width:768px) {
+  .container .box-container{
+    padding:20px;
+  }
+}
+
+@media (max-width:450px) {
+  .container .box-container{
+    grid-template-columns: 1fr;
+  }
+
+  .container .box-container .box .image{
+    height: 300px;
+  }
+}
